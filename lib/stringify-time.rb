@@ -7,7 +7,7 @@ module StringifyTime
 
       define_method "#{name}_string=" do |time_str|
         begin
-          write_attribute(name, Time.zone.parse(time_str))
+          write_attribute("#{name}", Time.zone.parse(time_str))
         rescue ArgumentError
           instance_variable_set("@#{name}_invalid", true)
         end
