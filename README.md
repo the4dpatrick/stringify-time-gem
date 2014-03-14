@@ -9,7 +9,7 @@ StrigifyTime is a gem that is modeled after the Railscast episode 033's stringif
 
 Add this line to your application's Gemfile:
 
-    gem 'stringify_time'
+    gem 'stringify-time'
 
 And then execute:
 
@@ -17,7 +17,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install stringify_time
+    $ gem install stringify-time
 
 ## Usage
 
