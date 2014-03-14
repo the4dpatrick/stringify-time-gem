@@ -2,12 +2,12 @@ module StringifyTime
   def stringify_time(*names)
     names.each do |name|
       define_method "#{name}_string" do
-        read_attribute(name).to_s(:db)
+        read_attribute(name).to_s(:db) unless read_attribute(name).nil?
       end
 
       define_method "#{name}_string=" do |time_str|
         begin
-          write_attribute(name, Time.parse(time_str))
+          write_attribute(name, Time.zone.parse(time_str))
         rescue ArgumentError
           instance_variable_set("@#{name}_invalid", true)
         end
@@ -20,6 +20,4 @@ module StringifyTime
   end
 end
 
-class ActiveRecord::Base
-  include StringifyTime
-end
+ActiveRecord::Base.send(:extend, StringifyTime)
