@@ -46,7 +46,7 @@ You can then add a validation within the model using the `due_at_invalid?` metho
 
     def validate
       errors.add(:due_at, 'is invalid') if due_at_invalid?
-end
+    end
 
 ## Contributing
 
