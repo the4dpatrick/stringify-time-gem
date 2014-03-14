@@ -1,5 +1,3 @@
-require 'active_record'
-
 module StringifyTime
   def stringify_time(*names)
     names.each do |name|
@@ -22,4 +20,6 @@ module StringifyTime
   end
 end
 
-ActiveRecord::Base.send :include, StringifyTime
+class ActiveRecord::Base
+  include StringifyTime
+end
