@@ -22,4 +22,4 @@ module StringifyTime
   end
 end
 
-ActiveRecord::Base.extend StringifyTime
+ActiveRecord::Base.send :include, StringifyTime
