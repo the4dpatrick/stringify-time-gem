@@ -40,6 +40,12 @@ This will create the `due_at_string` getter and setter methods within the Task m
       ...
     <% end %>
 
+In order to be able to submit this form and update the attribute, you must permit the generated attribute in your controller params if you are using Rails 4's Strong Paramaters.
+
+    def task_params
+      params.require(:task).permit(:name, :due_at_string)
+    end
+
 Your users are now able to type in the date into a text field instead of using the Rails' default `datetime_select` dropdowns.
 
 You can then add a validation within the model using the `due_at_invalid?` method. `due_at_invalid?` returns true if there was an invalid input into the text field, ie an ArgumentError.
